@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-         Vhembe TVET College
+         Vhembe TVET College V1.0
         </q-toolbar-title>
 
         <div>Geared For Success.</div>
