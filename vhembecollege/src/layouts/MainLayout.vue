@@ -1,0 +1,193 @@
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
+
+        <q-toolbar-title>
+         Vhembe TVET College
+        </q-toolbar-title>
+
+        <div>Geared For Success.</div>
+      </q-toolbar>
+    </q-header>
+
+          <q-footer elevated>
+        <q-toolbar>
+          <q-toolbar-title>Vhembe TVET College 2021</q-toolbar-title>
+            <q-icon name="copyright" />
+        </q-toolbar>
+      </q-footer>
+<q-drawer
+        v-model="leftDrawerOpen"
+        show-if-above
+        :width="250"
+        :breakpoint="600"
+      >
+        <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
+          <q-list padding>
+
+        <q-item-label
+          header
+          class="text-grey-8"
+        >
+          Essential Links
+        </q-item-label>
+
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />   
+
+      <q-item 
+      to="/"
+      clickable 
+      v-ripple exact>
+        <q-item-section avatar>
+        <q-icon name="home" />
+        </q-item-section>
+        <q-item-section>Home</q-item-section>
+      </q-item>
+      <q-item 
+      to="/about"
+      clickable 
+      v-ripple>
+        <q-item-section avatar>
+        <q-icon name="business_center" />
+        </q-item-section>
+        <q-item-section>About Us</q-item-section>
+      </q-item>
+
+        <q-item clickable v-ripple to="/OurCampuses">
+        <q-item-section avatar>
+         <q-icon name="map" />
+        </q-item-section>
+        <q-item-section>Our Campuses</q-item-section>
+      </q-item>
+
+        <q-item clickable v-ripple to="/courses">
+        <q-item-section avatar>
+          <q-icon name="school" />
+        </q-item-section>
+        <q-item-section>Our Courses</q-item-section>
+      </q-item>
+
+      <q-separator />
+
+      <q-item clickable v-ripple to="/OnlineApplication">
+        <q-item-section avatar>
+        <q-icon name="approval" />
+        </q-item-section>
+        <q-item-section>Apply Online</q-item-section>
+      </q-item>
+
+     <q-item clickable v-ripple to="/contactus">
+        <q-item-section avatar>
+        <q-icon name="contact_phone" />
+        </q-item-section>
+        <q-item-section>Contact Us</q-item-section>
+      </q-item>
+
+      <q-separator />
+
+
+
+    <q-item clickable v-ripple tag="a" target="_blank" href = "https://www.vhembecollege.edu.za/ " exact>  
+        <q-item-section avatar>
+        <q-icon name="language" />
+        </q-item-section>
+        <q-item-section>Our Main Website</q-item-section>
+      </q-item>
+
+<q-item clickable v-ripple tag="a" target="_blank" href = "https://twitter.com/VhembeTVETCol" exact>
+        <q-item-section avatar>
+        <q-icon name="flutter_dash" />
+        </q-item-section>
+        <q-item-section>Twitter</q-item-section>
+      </q-item>
+
+
+    <q-item clickable v-ripple tag="a" target="_blank" href = "https://www.facebook.com/Vhembe-TVET-College-Central-Office-302451900221196" exact>
+        <q-item-section avatar>
+        <q-icon name="facebook" />
+        </q-item-section>
+        <q-item-section>Facebook</q-item-section>
+      </q-item>
+
+ <q-separator>
+
+ </q-separator>
+       <q-item clickable v-ripple to="/student">
+        <q-item-section avatar>
+        <q-icon name="admin_panel_settings" />
+        </q-item-section>
+        <q-item-section>Student & Staff Zone</q-item-section>
+      </q-item>
+
+         </q-list>
+        </q-scroll-area>
+
+        <q-img class="absolute-top" src="/icons/bg_top.png" style="height: 150px">
+          <div class="absolute-bottom bg-transparent">
+            <q-avatar size="84px" class="q-mb-sm" >
+            <img src="/icons/logo_avartar.jpg">
+            </q-avatar>
+            <div class="text-weight-bold">Vhembe College</div>
+            <div>@VhembeTVETCol </div>
+          </div>
+        </q-img>
+      </q-drawer>
+
+
+      <q-page-container>
+        <keep-alive>
+            <router-view />
+        </keep-alive>
+
+      <q-page padding>
+      </q-page>
+      </q-page-container>
+  </q-layout>
+</template>
+
+<script>
+import EssentialLink from 'components/EssentialLink.vue'
+
+const linksList = 
+
+[
+
+  
+];
+
+
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  name: 'MainLayout',
+
+  components: {
+    EssentialLink
+  },
+
+  setup () {
+    const leftDrawerOpen = ref(false)
+
+    return {
+      essentialLinks: linksList,
+      leftDrawerOpen,
+      toggleLeftDrawer () {
+        leftDrawerOpen.value = !leftDrawerOpen.value
+      }
+    }
+  }
+})
+</script>
