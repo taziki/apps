@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header style="position:absolute;top:0;background:transparent" >
       <q-toolbar>
         <q-btn
           flat
@@ -11,17 +11,17 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-         Vhembe TVET College V1.0
+        <q-toolbar-title class="align-content:center">
+          <span>
+              Vhembe TVET College V1.0
+          </span>
         </q-toolbar-title>
-
-        <div>Geared For Success.</div>
       </q-toolbar>
     </q-header>
 
           <q-footer elevated>
         <q-toolbar>
-          <q-toolbar-title>Vhembe TVET College 2021</q-toolbar-title>
+          <q-toolbar-title >Vhembe TVET College 2021</q-toolbar-title>
             <q-icon name="copyright" />
         </q-toolbar>
       </q-footer>
@@ -45,20 +45,20 @@
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
-        />   
+        />
 
-      <q-item 
+      <q-item
       to="/"
-      clickable 
+      clickable
       v-ripple exact>
         <q-item-section avatar>
         <q-icon name="home" />
         </q-item-section>
         <q-item-section>Home</q-item-section>
       </q-item>
-      <q-item 
+      <q-item
       to="/about"
-      clickable 
+      clickable
       v-ripple>
         <q-item-section avatar>
         <q-icon name="business_center" />
@@ -100,7 +100,7 @@
 
 
 
-    <q-item clickable v-ripple tag="a" target="_blank" href = "https://www.vhembecollege.edu.za/ " exact>  
+    <q-item clickable v-ripple tag="a" target="_blank" href = "https://www.vhembecollege.edu.za/ " exact>
         <q-item-section avatar>
         <q-icon name="language" />
         </q-item-section>
@@ -151,9 +151,6 @@
         <keep-alive>
             <router-view />
         </keep-alive>
-
-      <q-page padding>
-      </q-page>
       </q-page-container>
   </q-layout>
 </template>
@@ -161,11 +158,11 @@
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
 
-const linksList = 
+const linksList =
 
 [
 
-  
+
 ];
 
 
@@ -191,3 +188,16 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="scss">
+.q-toolbar{
+  position: absolute;
+  top: 0;
+}
+.q-toolbar__title{
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0;
+  padding-right: 19px !important;
+}
+</style>
