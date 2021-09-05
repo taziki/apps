@@ -199,8 +199,8 @@ export default defineComponent({
   z-index:100;
   position:absolute;
   top:0;
-  background:transparent;
-  height:20px
+  background:rgba(1,174,240);
+  height:55px
 }
 .q-toolbar__title{
   font-size: 14px;
