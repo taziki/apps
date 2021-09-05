@@ -1,8 +1,9 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header style="position:absolute;top:0;background:transparent" >
-      <q-toolbar>
+    <q-header class="custom-header" >
+      <q-toolbar class="row items-center">
         <q-btn
+        style="margin-top:auto"
           flat
           dense
           round
@@ -11,7 +12,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title class="align-content:center">
+        <q-toolbar-title style="margin-top:auto;margin-bottom:5px"  class="align-content:center">
           <span>
               Vhembe TVET College V1.0
           </span>
@@ -147,7 +148,7 @@
       </q-drawer>
 
 
-      <q-page-container>
+      <q-page-container style="margin-top:-20px">
         <keep-alive>
             <router-view />
         </keep-alive>
@@ -192,6 +193,14 @@ export default defineComponent({
 .q-toolbar{
   position: absolute;
   top: 0;
+}
+.custom-header{
+  margin-top:10px;
+  z-index:100;
+  position:absolute;
+  top:0;
+  background:transparent;
+  height:20px
 }
 .q-toolbar__title{
   font-size: 14px;
